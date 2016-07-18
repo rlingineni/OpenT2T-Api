@@ -23,7 +23,7 @@ Use that data for the next API commands:
 > POST `http://localhost:3000/onboard/wink` {idkey,username,password} as urlencoded
 
 3.) Use the `Invoke` route to control a device (Use Data returned from from both Onboarding and Search API):
-> POST `http://localhost:3000/invoke/wink` {command,schema,device,deviceparams}
+> POST `http://localhost:3000/invoke` {command,schema,device,deviceparams}
 
 Here's what the headers mean
 
