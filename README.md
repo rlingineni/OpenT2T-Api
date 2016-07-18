@@ -4,7 +4,8 @@ API for interfacing with OpenT2T
 Simple OPENT2T Rest API that is in the works. Download and use it locally for now to test it. Currently supports onboarding for Wink Devices (you will need to open Onboarding/Wink.JS and plugin in your client details).
 
 1.) Use the `Search` route to get supported devices:
-`http://localhost:3000/search/{keyword}`
+
+> GET `http://localhost:3000/search/{keyword}`
 
 You will get a JSON array response with pertinent info:
    [{
@@ -25,7 +26,8 @@ Use that data for the next API commands:
 > POST `http://localhost:3000/invoke/wink` {command,schema,device,deviceparams}
 
 Here's what the headers mean
-`command` - > Exactly as you invoke in JS (e.g.`getCurrentTemperature()`, notice the parantheses )
+
+`command` - > Exactly as you write in the actual translator (e.g.`getCurrentTemperature()`, notice the parantheses )
 
 `schema` -> Schema is the schema name from the search route
 
