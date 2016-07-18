@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "opent2t-translator-wink-thermostat":"1.0.0"
+    "opent2t-thermostat":"1.0.0"
   },
   "dependencies": 
   {

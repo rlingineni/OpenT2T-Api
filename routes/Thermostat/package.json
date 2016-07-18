@@ -1,0 +1,13 @@
+{
+    "name": "opent2t-thermostat",
+    "version": "1.0.0",
+    "description": "",
+    "dependencies": {
+    },
+    "devDependencies": {
+        "optimist": "0.6.1",
+        "q": "1.4.1"
+    },
+    "author": "",
+    "license": "MIT"
+}

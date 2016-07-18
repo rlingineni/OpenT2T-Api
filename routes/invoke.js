@@ -1,31 +1,36 @@
 'use strict';
 
 
-function executeRequest(params) {
+function executeRequest(params) 
+{
 
-    var translator = require(params.translator + "/thingtranslator");
-    
-    function Device(deviceId, accessToken) {
-    this.props = ' { "id": "' + deviceId + '", "access_token": "' + accessToken + '" }';
-    this.name = "Wink Thermostat ";
-    }
+var schema = require('opent2t-' + params.schema);
+return schema.invokeTranslator(params);
 
-//init device here
-   
-    translator.initDevice(device);
-
-    var execute = "translator."+params.command;
-    console.log(eval(execute));
 }
  
 module.exports = function(app)
 {
-    app.post('/invoke' ,function(req,res){
+    app.post('/invoke' ,function(req,res)
+    {
+    var schema = req.body.schema;
     var command =req.body.command;
-    var translator = req.body.translator;
-    console.log(translator);
-    res.send(translator + " " + command);
-   executeRequest(req.body)
+    var device = req.body.device;
+    var deviceParams = JSON.parse(req.body.deviceParams);
+    console.log(deviceParams);
+    console.log(schema + ' ' + deviceParams.id);
+
+     executeRequest(req.body).then(result => {
+         console.log('this matters' + result)
+         res.header("Content-Type",'application/json');
+         res.send(result);
+    }).catch(error => {
+        res.header("Content-Type",'application/json');
+         res.send(error);
+    });
+
+   
+     
     });
 
 }
