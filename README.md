@@ -22,22 +22,23 @@ Use that data for the next API commands:
 2.) Use the `Onboard` route to get the necessary information to control a device (Only Wink):
 > POST `http://localhost:3000/onboard/wink` {idkey,username,password} as urlencoded
 
-3.) Use the `Invoke` route to control a device (Use Data returned from from both Onboarding and Search):
+3.) Use the `Invoke` route to control a device (Use Data returned from from both Onboarding and Search API):
 > POST `http://localhost:3000/invoke/wink` {command,schema,device,deviceparams}
 
 Here's what the headers mean
 
 `command` - > Exactly as you write in the actual translator (e.g.`getCurrentTemperature()`, notice the parantheses )
 
-`schema` -> Schema is the schema name from the search route
+`schema` -> Schema is the schema name, you can get it from the search api
 
-`device` -> This is the Device Name , you get from the search route
+`device` -> This is the Device Name , you get it from the search api
 
 `deviceparams` -> JSON object stringified with some information (For now only Wink)
 
      { 
      "id": "Wink Device ID", "accessToken": "Wink Access Token" 
      }
+
 
 
 
